@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package pb;
+
+enum MsgID {
+  UNKNOW_MessageID = 0;
+
+  C2S_FETCH_CONFIG = 100;
+  C2S_PLAYER_LOGIN = 101;
+  C2S_PLAYER_PLAYING = 102;
+  C2S_PLAYER_LOGOUT = 103;
+}

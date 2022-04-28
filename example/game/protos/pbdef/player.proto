@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package pb;
+
+// 拉取客户端配置
+//@ C2S_FETCH_CONFIG resp: Config
+// 玩家登录请求
+//@ C2S_PLAYER_LOGIN req: LoginArg  resp: LoginResp
+// 模拟玩家玩游戏请求
+//@ C2S_PLAYER_PLAYING req: PlayingArg
+// 玩家退出
+//@ C2S_PLAYER_LOGOUT
+
+message ServerTime {
+  int64 Time = 1;
+}
+
+message Config {
+  int64 ServerTime = 1;
+  string Version = 2;
+  string Channel = 3;
+}
+
+message LoginArg {
+  string Account = 1;
+  string Password = 2;
+  string ClientType = 3;
+  string ClientVer = 4;
+}
+
+message LoginResp {
+  int64 Uid = 1;
+  string Avatar = 2;
+  string Nickname = 3;
+  int32 Gold = 4;
+  int32 Level = 5;
+}
+
+message PlayingArg {
+  int32 Vigor = 1;
+  int32 Angle = 2;
+}

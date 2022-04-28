@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package pb;
+
+import "msgid.proto";
+
+enum MsgType {
+  Unknown = 0;
+  Req = 1;
+  Reply = 2;
+  Push = 3;
+  Err = 4;
+}
+
+message PkgMsg {
+  MsgType Type = 1;
+  MsgID Msgid = 2;
+  bytes Payload = 3;
+}
+
+message ErrMsg {
+  int32 Code = 1;
+  string Msg = 2;
+}
