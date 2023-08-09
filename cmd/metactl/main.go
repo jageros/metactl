@@ -48,7 +48,7 @@ func main() {
 	}
 
 	if *module == "" {
-		gomod, err := ioutil.ReadFile("go.mod")
+		gomod, err := os.ReadFile("go.mod")
 		if err != nil {
 			log.Fatalf("Input module name or exec in go mod project root directory.")
 		}
