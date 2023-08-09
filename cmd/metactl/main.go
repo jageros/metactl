@@ -30,7 +30,7 @@ const Version = "v1.0.0"
 var (
 	module  = flag.String("module", "", "project base package path")
 	inDir   = flag.String("indir", "protos/pbdef", "proto file directory")
-	outDir  = flag.String("outdir", "protos/", "generate meta go package directory")
+	outDir  = flag.String("outdir", "", "generate meta go package directory")
 	pbPkg   = flag.String("pbpkg", "", "proto generate pb file go package")
 	eumName = flag.String("enum", "MsgID", "msg id enum name")
 
