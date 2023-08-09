@@ -66,7 +66,7 @@ func main() {
 		*pbPkg = fmt.Sprintf("%s/protos/pb", *module)
 	}
 
-	files, err := ioutil.ReadDir(*inDir)
+	files, err := os.ReadDir(*inDir)
 	if err != nil {
 		log.Fatalf("ReadDir error: %v", err)
 	}
@@ -74,7 +74,13 @@ func main() {
 		log.Fatalf("Dir %s not has file", *inDir)
 	}
 
-	outPath := strings.Replace(*outDir+"/meta", "//", "/", -1)
+	var outdir string
+	if len(*outDir) > 0 {
+		outdir = *outDir + "/meta"
+	} else {
+		outdir = "meta"
+	}
+	outPath := strings.Replace(outdir, "//", "/", -1)
 	_, err = os.Stat(outPath)
 	if os.IsNotExist(err) {
 		err = os.Mkdir(outPath, fs.ModePerm)
