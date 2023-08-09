@@ -25,7 +25,7 @@ import (
 	"time"
 )
 
-const Version = "v1.0.0"
+const Version = "v1.0.4"
 
 var (
 	module  = flag.String("module", "", "project base package path")
